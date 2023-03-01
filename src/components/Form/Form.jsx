@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import React, { useState } from 'react';
 
 export const Form = ({ handleAddTodo }) => {
@@ -18,7 +19,7 @@ export const Form = ({ handleAddTodo }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const newObj = {
-      // id:
+      id: nanoid(),
       title,
       description,
     };

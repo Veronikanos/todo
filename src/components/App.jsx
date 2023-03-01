@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form } from './Form/Form';
+import { TodoList } from './TodoList/TodoList';
 
 export const App = () => {
-  // state = {
-  //   todo: [],
-  // };
-
   const [todos, setTodos] = useState([]);
   // console.log(todos);
 
-  // useEffect(() => {
-  //   ;
-  // }, [todos]);
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
 
   const handleAddTodo = newTodo => {
-    setTodos = [newTodo, ...todos];
+    setTodos([newTodo, ...todos]);
   };
 
   return (
     <>
       <Form handleAddTodo={handleAddTodo} />
+      <TodoList todos={todos} />
     </>
   );
 };
