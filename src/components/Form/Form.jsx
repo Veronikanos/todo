@@ -34,7 +34,13 @@ export const Form = ({ handleAddTodo }) => {
     <form onSubmit={handleSubmit}>
       <label>
         Title:
-        <input type="text" value={title} name="title" onChange={handleInput} />
+        <input
+          type="text"
+          value={title}
+          name="title"
+          placeholder="Enter title:"
+          onChange={handleInput}
+        />
       </label>
       <label>
         Description:
@@ -42,6 +48,7 @@ export const Form = ({ handleAddTodo }) => {
           type="text"
           value={description}
           name="description"
+          placeholder="Enter description:"
           onChange={handleInput}
         />
       </label>

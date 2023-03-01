@@ -1,4 +1,6 @@
-export const TodoList = ({ todos }) => {
+import { TodoItem } from 'components/TodoItem/TodoItem';
+
+export const TodoList = ({ todos, handleToggleTodo }) => {
   return (
     <table>
       <thead>
@@ -10,18 +12,14 @@ export const TodoList = ({ todos }) => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          {todos.map((todo, index) => (
-            <>
-              <td key={todo.id}>{index + 1}</td>
-              <td>{todo.title}</td>
-              <td>{todo.description}</td>
-              <td>
-                <input type="checkbox" checked={todo.status}></input>
-              </td>
-            </>
-          ))}
-        </tr>
+        {todos.map((todo, index) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            index={index}
+            handleToggleTodo={handleToggleTodo}
+          />
+        ))}
       </tbody>
     </table>
   );
