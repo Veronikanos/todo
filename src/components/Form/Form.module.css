@@ -5,3 +5,20 @@ input {
 .errorInput {
   border: 1px solid red;
 }
+
+.fieldsWrapper {
+  display: flex;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input + span {
+  margin-left: 10px;
+}
+
+form > button {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,17 @@
+.todoTable {
+  border-collapse: collapse;
+}
+
+.todoTable th,
+.todoTable td {
+  padding: 10px;
+  text-align: left;
+}
+
+.todoTable th {
+  background-color: #eee;
+}
+
+.todoTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

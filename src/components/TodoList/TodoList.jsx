@@ -1,8 +1,9 @@
 import { TodoItem } from 'components/TodoItem/TodoItem';
+import styles from './TodoList.module.css';
 
 export const TodoList = ({ todos, handleToggleTodo }) => {
   return (
-    <table>
+    <table className={styles.todoTable}>
       <thead>
         <tr>
           <th>ID</th>

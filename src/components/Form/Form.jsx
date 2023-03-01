@@ -42,25 +42,35 @@ export const Form = ({ handleAddTodo }) => {
     <form onSubmit={handleSubmit}>
       <label>
         Title:
-        <input
-          className={titleError ? styles.errorInput : ''}
-          type="text"
-          value={title}
-          name="title"
-          placeholder="Enter title:"
-          onChange={handleInput}
-        />
+        <div className={styles.fieldsWrapper}>
+          <input
+            className={titleError ? styles.errorInput : ''}
+            type="text"
+            value={title}
+            name="title"
+            placeholder="Enter title:"
+            onChange={handleInput}
+          />
+          {titleError && (
+            <span className={styles.errorMessage}>This field is empty.</span>
+          )}
+        </div>
       </label>
       <label>
         Description:
-        <input
-          className={descriptionError ? styles.errorInput : ''}
-          type="text"
-          value={description}
-          name="description"
-          placeholder="Enter description:"
-          onChange={handleInput}
-        />
+        <div className={styles.fieldsWrapper}>
+          <input
+            className={descriptionError ? styles.errorInput : ''}
+            type="text"
+            value={description}
+            name="description"
+            placeholder="Enter description:"
+            onChange={handleInput}
+          />
+          {descriptionError && (
+            <span className={styles.errorMessage}>This field is empty.</span>
+          )}
+        </div>
       </label>
       <button type="submit">Create</button>
     </form>
