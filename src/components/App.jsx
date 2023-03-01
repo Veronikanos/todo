@@ -11,7 +11,7 @@ export const App = () => {
   }, [todos]);
 
   const handleAddTodo = newTodo => {
-    setTodos([newTodo, ...todos]);
+    setTodos([...todos, newTodo]);
   };
 
   return (
