@@ -1,0 +1,16 @@
+/* .input {
+  border-color: red;
+} */
+
+/* input:invalid {
+  border: 1px solid red;
+}
+
+input:invalid::before {
+  content: 'This field is empty';
+  color: red;
+} */
+
+.error-classname {
+  border: 1px solid red;
+}
