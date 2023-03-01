@@ -7,9 +7,9 @@ export const TodoList = ({ todos, handleToggleTodo }) => {
       <thead>
         <tr>
           <th>ID</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Status</th>
+          <th>TITLE</th>
+          <th>DESCRIPTION</th>
+          <th>STATUS</th>
         </tr>
       </thead>
       <tbody>
