@@ -1,4 +1,4 @@
-import { TodoModal } from 'components/Modal/Modal';
+import { Modal } from 'components/Modal/Modal';
 import { useState } from 'react';
 import styles from './TodoItem.module.css';
 
@@ -27,7 +27,13 @@ export const TodoItem = ({ todo, index, handleToggleTodo }) => {
           ></input>
         </td>
       </tr>
-      {modalOpen && <TodoModal todo={todo} handleClose={handleModalClose} />}
+      {modalOpen && (
+        <Modal
+          todo={todo}
+          handleClose={handleModalClose}
+          handleToggleTodo={handleToggleTodo}
+        />
+      )}
     </>
   );
 };
