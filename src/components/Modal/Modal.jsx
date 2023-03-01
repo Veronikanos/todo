@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Modal.module.css';
 
 export const Modal = ({ todo, handleClose, handleToggleTodo }) => {
+  const [isChecked, setIsChecked] = useState(todo.status);
+
+  const handleCheckboxInModal = () => {
+    handleToggleTodo(todo.id);
+    setIsChecked(!isChecked);
+  };
+
   return (
     <div className={styles.modal}>
       <div className={styles.modalWrapper}>
@@ -12,8 +19,8 @@ export const Modal = ({ todo, handleClose, handleToggleTodo }) => {
           <span>Status:</span>
           <input
             type="checkbox"
-            checked={todo.status}
-            onChange={() => handleToggleTodo(todo.id)}
+            checked={isChecked}
+            onChange={handleCheckboxInModal}
           />
         </div>
         <button className={styles.closeButton} onClick={handleClose}>

@@ -1,5 +1,3 @@
-import { Modal } from 'components/Modal/Modal';
-import { useState } from 'react';
 import styles from './TodoItem.module.css';
 
 export const TodoItem = ({
@@ -8,14 +6,6 @@ export const TodoItem = ({
   handleToggleTodo,
   handleTodoClick,
 }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  // const handleModalOpen = () => {
-  //   setModalOpen(true);
-  // };
-
-  const handleModalClose = () => {
-    setModalOpen(false);
-  };
   return (
     <>
       <tr>
@@ -32,13 +22,6 @@ export const TodoItem = ({
           ></input>
         </td>
       </tr>
-      {modalOpen && (
-        <Modal
-          todo={todo}
-          handleClose={handleModalClose}
-          handleToggleTodo={handleToggleTodo}
-        />
-      )}
     </>
   );
 };

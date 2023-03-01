@@ -35,7 +35,11 @@ export const App = () => {
         handleTodoClick={handleTodoClick}
       />
       {selectedTodo && (
-        <Modal todo={selectedTodo} handleClose={() => setSelectedTodo(null)} />
+        <Modal
+          todo={selectedTodo}
+          handleClose={() => setSelectedTodo(null)}
+          handleToggleTodo={handleToggleTodo}
+        />
       )}
     </>
   );
