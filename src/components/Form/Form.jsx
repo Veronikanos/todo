@@ -5,25 +5,26 @@ import styles from './Form.module.css';
 export const Form = ({ handleAddTodo }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [inputError, setInputError] = useState('');
-
-  const state = {
-    title: setTitle,
-    description: setDescription,
-  };
+  const [titleError, setTitleError] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
 
   const handleInput = e => {
-    setInputError('');
     const { name, value } = e.target;
-    state[name](value.trim());
+    if (name === 'title') {
+      setTitle(value.trim());
+      setTitleError(false);
+    } else if (name === 'description') {
+      setDescription(value.trim());
+      setDescriptionError(false);
+    }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!title || !description) {
-      title ? setInputError('description') : setInputError('title');
-      return;
-    }
+
+    if (!title) setTitleError(true);
+    if (!description) setDescriptionError(true);
+    if (!title || !description) return;
 
     const newObj = {
       id: nanoid(),
@@ -37,17 +38,12 @@ export const Form = ({ handleAddTodo }) => {
     setDescription('');
   };
 
-  const inputTitleStyle =
-    inputError === 'title' ? styles['error-classname'] : '';
-  const inputDescriptionStyle =
-    inputError === 'description' ? styles['error-classname'] : '';
-
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Title:
         <input
-          className={inputTitleStyle}
+          className={titleError ? styles.errorInput : ''}
           type="text"
           value={title}
           name="title"
@@ -58,7 +54,7 @@ export const Form = ({ handleAddTodo }) => {
       <label>
         Description:
         <input
-          className={inputDescriptionStyle}
+          className={descriptionError ? styles.errorInput : ''}
           type="text"
           value={description}
           name="description"
