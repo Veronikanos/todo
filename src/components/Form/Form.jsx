@@ -22,6 +22,7 @@ export const Form = ({ handleAddTodo }) => {
       id: nanoid(),
       title,
       description,
+      status: false,
     };
 
     handleAddTodo(newObj);
