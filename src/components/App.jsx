@@ -1,16 +1,25 @@
+import React, { useState } from 'react';
+import { Form } from './Form/Form';
+
 export const App = () => {
+  // state = {
+  //   todo: [],
+  // };
+
+  const [todos, setTodos] = useState([]);
+  // console.log(todos);
+
+  // useEffect(() => {
+  //   ;
+  // }, [todos]);
+
+  const handleAddTodo = newTodo => {
+    setTodos = [newTodo, ...todos];
+  };
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Form handleAddTodo={handleAddTodo} />
+    </>
   );
 };
