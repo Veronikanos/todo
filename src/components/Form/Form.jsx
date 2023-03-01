@@ -11,10 +11,10 @@ export const Form = ({ handleAddTodo }) => {
   const handleInput = e => {
     const { name, value } = e.target;
     if (name === 'title') {
-      setTitle(value.trim());
+      setTitle(value);
       setTitleError(false);
     } else if (name === 'description') {
-      setDescription(value.trim());
+      setDescription(value);
       setDescriptionError(false);
     }
   };

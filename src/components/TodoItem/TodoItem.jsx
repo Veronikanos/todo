@@ -2,11 +2,16 @@ import { Modal } from 'components/Modal/Modal';
 import { useState } from 'react';
 import styles from './TodoItem.module.css';
 
-export const TodoItem = ({ todo, index, handleToggleTodo }) => {
+export const TodoItem = ({
+  todo,
+  index,
+  handleToggleTodo,
+  handleTodoClick,
+}) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const handleModalOpen = () => {
-    setModalOpen(true);
-  };
+  // const handleModalOpen = () => {
+  //   setModalOpen(true);
+  // };
 
   const handleModalClose = () => {
     setModalOpen(false);
@@ -15,7 +20,7 @@ export const TodoItem = ({ todo, index, handleToggleTodo }) => {
     <>
       <tr>
         <td>{index + 1}.</td>
-        <td className={styles.titleTodo} onClick={handleModalOpen}>
+        <td className={styles.titleTodo} onClick={() => handleTodoClick(todo)}>
           {todo.title}
         </td>
         <td>{todo.description}</td>

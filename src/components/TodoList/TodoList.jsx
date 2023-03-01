@@ -1,7 +1,7 @@
 import { TodoItem } from 'components/TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 
-export const TodoList = ({ todos, handleToggleTodo }) => {
+export const TodoList = ({ todos, handleToggleTodo, handleTodoClick }) => {
   return (
     <table className={styles.todoTable}>
       <thead>
@@ -19,6 +19,7 @@ export const TodoList = ({ todos, handleToggleTodo }) => {
             todo={todo}
             index={index}
             handleToggleTodo={handleToggleTodo}
+            handleTodoClick={handleTodoClick}
           />
         ))}
       </tbody>
